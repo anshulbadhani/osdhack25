@@ -4,7 +4,6 @@
 This module handles all user interface rendering for the RETRERALE terminal,
 including the splash screen, headers, game lists, and help pages.
 """
-
 import html
 import re
 import time
@@ -12,12 +11,14 @@ from datetime import datetime
 import psutil
 from pathlib import Path
 
-from prompt_toolkit import print_formatted_text
+from prompt_toolkit import HTML, print_formatted_text
 from prompt_toolkit.formatted_text import FormattedText
 
-from src.config import GAMES_DIRECTORY, EMULATORS_DIRECTORY, SOUNDS_DIRECTORY, CONFIG_FILE, LOG_FILE
+from src.config import GAMES_DIRECTORY, EMULATORS_DIRECTORY, SOUNDS_DIRECTORY, CONFIG_FILE, LOG_FILE, SERVER_URL
+from src.online_manager import get_chat_client
+from src.game_manager import get_local_games, get_cartridge_games
 
-# --- ASCII Art and Styles ---
+# ASCII ART (Unchanged)
 RETRERALE_ART = FormattedText([('class:ansimagenta', """
 ██████╗ ███████╗████████╗██████╗ ███████╗██████╗  █████╗ ██╗     ███████╗
 ██╔══██╗██╔════╝╚══██╔══╝██╔══██╗██╔════╝██╔══██╗██╔══██╗██║     ██╔════╝
@@ -27,7 +28,7 @@ RETRERALE_ART = FormattedText([('class:ansimagenta', """
 ╚═╝  ╚═╝╚══════╝   ╚═╝   ╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝╚═╝  ╚═╝╚══════╝╚══════╝
 """)])
 
-# --- Core Display Functions ---
+# Core Display Functions (display_splash_screen, display_welcome_message, display_header are unchanged)
 def display_splash_screen():
     print_formatted_text(RETRERALE_ART)
     print_formatted_text(FormattedText([('', '         '), ('class:ansigreen', 'A Dynamic, AI-Powered Retro Game Launcher')]))
@@ -49,31 +50,21 @@ def display_welcome_message():
     print_formatted_text(FormattedText([('class:ansiyellow', "Scanning for games and cartridges in the background...")]))
 
 def display_header(title: str):
-    """Displays a consistent, styled header box with corrected alignment."""
     current_time = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     header_width = 75
-    
-    # --- THIS IS THE FIX ---
-    # The number of spaces has been adjusted to perfectly align the final '|'
     time_padding = header_width - len(" CURRENT SYSTEM TIME: ") - len(current_time) - 1
-    
     print_formatted_text(FormattedText([('class:ansimagenta', f"┌─{'─' * (header_width-2)}─┐")]))
     print_formatted_text(FormattedText([('class:ansimagenta', '│'), ('class:ansibrightwhite', f" {title.upper():^{header_width-2}} "), ('class:ansimagenta', '│')]))
     print_formatted_text(FormattedText([('class:ansimagenta', f"├─{'─' * (header_width-2)}─┤")]))
-    print_formatted_text(FormattedText([
-        ('class:ansimagenta', '│'),
-        ('class:ansicyan', f" CURRENT SYSTEM TIME: {current_time}{'':<{time_padding}} "),
-        ('class:ansimagenta', '│')
-    ]))
+    print_formatted_text(FormattedText([('class:ansimagenta', '│'), ('class:ansicyan', f" CURRENT SYSTEM TIME: {current_time}{'':<{time_padding}} "), ('class:ansimagenta', '│')]))
     print_formatted_text(FormattedText([('class:ansimagenta', f"└─{'─' * (header_width-2)}─┘")])); print()
 
-# (The rest of the file is identical to the last version)
 def display_game_list(local_games: list, cartridge_games: dict, game_map: dict):
+    # This function remains unchanged.
     display_header("RETROFLOW GAME LIST")
     print_formatted_text(FormattedText([('class:bg:ansiblue class:ansibrightwhite', '   LOCAL GAMES   ')]))
     if not local_games:
-        print_formatted_text(FormattedText([('class:ansiyellow', " No local games found in the 'Games' directory.")]))
-        print_formatted_text(FormattedText([('class:ansiyellow', f" Make sure your ROMs are placed in: {str(GAMES_DIRECTORY)}")]))
+        print_formatted_text(FormattedText([('class:ansiyellow', f" No local games found. Place ROMs in: {str(GAMES_DIRECTORY)}")]))
     else:
         print_formatted_text(FormattedText([('class:ansibrightyellow', "  #   Game Title                           System             Status")]))
         print_formatted_text(FormattedText([('class:ansibrightyellow', "  --- ------------------------------------ ------------------ ------")]))
@@ -97,39 +88,87 @@ def display_game_list(local_games: list, cartridge_games: dict, game_map: dict):
 
 def display_help():
     display_header("HELP - AVAILABLE COMMANDS")
-    help_text = [
-        ("list", "Display the list of local and cartridge games.", "Refreshes the game display."),
-        ("play <number>", "Launch a game by its number.", "Example: play 5"),
-        ("info <number>", "Show detailed information about a game.", "Example: info 12"),
-        ("scan", "Force an immediate scan for new games.", "Useful after adding games."),
-        ("drives", "List all currently detected cartridge drives.", "Shows mount points and status."),
-        ("ai <prompt>", "Ask the AI a question about games or topics.", "Example: ai what is the best nes game?"),
-        ("apikey", "Set or update your Google Gemini API key.", "Required for AI features."),
-        ("settings", "Display current application settings.", "Shows paths, scan intervals, etc."),
-        ("log", "Display the last few entries from the log.", "Useful for debugging issues."),
-        ("clear / cls", "Clear the terminal screen.", "Refreshes the display."),
-        ("exit", "Exit the RetroFlow application.", "Safely shuts down the system."),
-        ("help", "Display this help message.", "You are here!"),
-    ]
-    print_formatted_text(FormattedText([('class:ansigreen', "Command Reference:")]))
-    print_formatted_text(FormattedText([('class:ansibrightyellow', "  Command              Description                                      Usage Example")]))
-    for cmd, desc, usage in help_text:
-        print_formatted_text(FormattedText([('class:ansibrightcyan', f"  {cmd:<20} "), ('class:ansicyan', f"{desc:<48} "), ('class:ansiblue', f"{usage}")]))
-    print(); print_formatted_text(FormattedText([('class:ansibrightwhite', "Note: Game numbers change dynamically with cartridge insertions/removals and scans.")]))
+    help_data = {
+        "LOCAL COMMANDS": [
+            ("list", "Display the list of local and cartridge games."),
+            ("play (num)", "Launch a game by its number from the list."),
+            ("info (num)", "Show detailed information about a local game."),
+            ("scan", "Force a scan for local/cartridge games."),
+            ("drives", "List all detected cartridge drives."),
+            ("ai (prompt)", "Ask the local AI a question (Flowey)."),
+        ],
+        "ONLINE COMMANDS": [
+            ("server start|stop", "Start or stop the backend web server."),
+            ("server scan", "Tell the server to scan for new online games."),
+            ("online list", "List games from the online catalog."),
+            ("online search (q)", "Search the online catalog."),
+            ("online get (id)", "Download a game from the catalog by its ID."),
+        ],
+        "CHAT COMMANDS": [
+            ("chat connect (user)", "Connect to the chat server with a username."),
+            ("chat disconnect", "Disconnect from the chat server."),
+            ("chat send (msg)", "Send a message to the chat."),
+            ("chat flowey (msg)", "Ask the chat's Flowey AI a question."),
+            ("chat users", "List users currently in the chat."),
+        ],
+        "SYSTEM COMMANDS": [
+            ("apikey", "Set your Google Gemini API key for local AI."),
+            ("settings", "Display current application settings."),
+            ("log", "Display the last few entries from the log."),
+            ("clear / cls", "Clear the terminal screen."),
+            ("exit", "Exit the RetroFlow application."),
+        ]
+    }
+    for category, commands in help_data.items():
+        print_formatted_text(HTML(f"\n<ansibrightblue>{f'--- {category} ---':^75}</ansibrightblue>"))
+        print_formatted_text(HTML("<ansibrightyellow>  Command              Description</ansibrightyellow>"))
+        for cmd, desc in commands:
+            print_formatted_text(HTML(f"  <ansibrightcyan>{cmd:<20}</ansibrightcyan> <ansicyan>{desc}</ansicyan>"))
+    print()
 
-def display_settings():
+def display_settings(server_process):
     display_header("APPLICATION SETTINGS")
+    
+    # Determine server and chat status
+    server_status = "Inactive"
+    if server_process and server_process.poll() is None:
+        server_status = f"Running (PID: {server_process.pid})"
+        
+    chat_client = get_chat_client()
+    chat_status = "Disconnected"
+    if chat_client and chat_client.is_connected():
+        chat_status = f"Connected as {chat_client.username}"
+    
     settings = [
+        ("--- SYSTEM PATHS ---", ""),
         ("Games Directory", str(GAMES_DIRECTORY)), ("Emulators Directory", str(EMULATORS_DIRECTORY)),
-        ("Sounds Directory", str(SOUNDS_DIRECTORY)), ("Config File Path", str(CONFIG_FILE)),
-        ("Log File Path", str(LOG_FILE)),
+        ("Config File Path", str(CONFIG_FILE)), ("Log File Path", str(LOG_FILE)),
+        ("--- ONLINE FEATURES ---", ""),
+        ("Server Status", server_status), ("Server URL", SERVER_URL),
+        ("Chat Status", chat_status),
     ]
-    print_formatted_text(FormattedText([('class:ansibrightgreen', "Current Configuration Paths:")]))
-    print_formatted_text(FormattedText([('class:ansibrightyellow', "  Setting                           Value")]))
-    print_formatted_text(FormattedText([('class:ansibrightyellow', "  --------------------------------- ------------------------------------------------")]))
-    for setting, value in settings:
-        print_formatted_text(FormattedText([('class:ansibrightcyan', f"  {setting:<33} "), ('class:ansicyan', value)]))
 
+    for setting, value in settings:
+        if "---" in setting:
+            print_formatted_text(HTML(f"\n<ansibrightblue>{setting}</ansibrightblue>"))
+        else:
+            print_formatted_text(HTML(f"  <ansibrightcyan>{setting:<25}</ansibrightcyan> <ansicyan>{value}</ansicyan>"))
+    print()
+
+def display_online_game_list(games: list, list_title: str):
+    """Displays a list of games from the online catalog."""
+    display_header(list_title)
+    if not games:
+        print_formatted_text(HTML("<ansiyellow>No online games found or server is unavailable.</ansiyellow>"))
+        return
+    
+    print_formatted_text(HTML("<ansibrightyellow>  ID  Game Title                         System                       Size</ansibrightyellow>"))
+    print_formatted_text(HTML("<ansibrightyellow>  --- ---------------------------------- ---------------------------- --------</ansibrightyellow>"))
+    for game in games:
+        print_formatted_text(HTML(f"  <ansibrightcyan>{game['id']:<3}</ansibrightcyan> <ansiblue>{game['name'][:34]:<34}</ansiblue> <ansimagenta>{game['system'][:28]:<28}</ansimagenta> <ansigreen>{game['size']:<8}</ansigreen>"))
+    print()
+
+# Other UI functions (display_game_info, display_drive_list, display_log) remain unchanged.
 def display_game_info(game_info: dict):
     display_header("GAME INFORMATION")
     info = {
