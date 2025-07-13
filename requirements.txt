@@ -14,3 +14,6 @@ pygame
 
 # For building the final executable
 pyinstaller
+websockets
+fastapi
+uvicorn
