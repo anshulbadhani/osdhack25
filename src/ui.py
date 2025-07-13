@@ -6,6 +6,8 @@ including the splash screen, headers, game lists, and help pages.
 """
 
 import html
+import re
+import time
 from datetime import datetime
 import psutil
 from pathlib import Path
@@ -16,19 +18,16 @@ from prompt_toolkit.formatted_text import FormattedText
 from src.config import GAMES_DIRECTORY, EMULATORS_DIRECTORY, SOUNDS_DIRECTORY, CONFIG_FILE, LOG_FILE
 
 # --- ASCII Art and Styles ---
-RETRERALE_ART = FormattedText([
-    ('class:ansimagenta', """
+RETRERALE_ART = FormattedText([('class:ansimagenta', """
 ██████╗ ███████╗████████╗██████╗ ███████╗██████╗  █████╗ ██╗     ███████╗
 ██╔══██╗██╔════╝╚══██╔══╝██╔══██╗██╔════╝██╔══██╗██╔══██╗██║     ██╔════╝
 ██████╔╝█████╗     ██║   ██████╔╝█████╗  ██████╔╝███████║██║     █████╗  
 ██╔══██╗██╔══╝     ██║   ██╔══██╗██╔══╝  ██╔══██╗██╔══██║██║     ██╔══╝  
 ██║  ██║███████╗   ██║   ██║  ██║███████╗██║  ██║██║  ██║███████╗███████╗
 ╚═╝  ╚═╝╚══════╝   ╚═╝   ╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝╚═╝  ╚═╝╚══════╝╚══════╝
-""")
-])
+""")])
 
 # --- Core Display Functions ---
-
 def display_splash_screen():
     print_formatted_text(RETRERALE_ART)
     print_formatted_text(FormattedText([('', '         '), ('class:ansigreen', 'A Dynamic, AI-Powered Retro Game Launcher')]))
@@ -39,7 +38,7 @@ def display_splash_screen():
     print(); print_formatted_text(FormattedText([('class:ansigreen', 'Initializing system components...')]))
     print_formatted_text(FormattedText([('class:ansiyellow', 'Scanning for local games and removable cartridges in the background...')]))
     print_formatted_text(FormattedText([('class:ansicyan', 'Please wait a moment...')]))
-    print(); print_formatted_text(FormattedText([('class:ansibrightwhite', 'Press any key to continue...')]))
+    print(); print_formatted_text(FormattedText([('class:ansibrightwhite', "Press any key to continue...")]))
     input()
 
 def display_welcome_message():
@@ -50,13 +49,25 @@ def display_welcome_message():
     print_formatted_text(FormattedText([('class:ansiyellow', "Scanning for games and cartridges in the background...")]))
 
 def display_header(title: str):
-    current_time = datetime.now().strftime("%Y-%m-%d %H:%M:%S"); header_width = 75
+    """Displays a consistent, styled header box with corrected alignment."""
+    current_time = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    header_width = 75
+    
+    # --- THIS IS THE FIX ---
+    # The number of spaces has been adjusted to perfectly align the final '|'
+    time_padding = header_width - len(" CURRENT SYSTEM TIME: ") - len(current_time) - 1
+    
     print_formatted_text(FormattedText([('class:ansimagenta', f"┌─{'─' * (header_width-2)}─┐")]))
     print_formatted_text(FormattedText([('class:ansimagenta', '│'), ('class:ansibrightwhite', f" {title.upper():^{header_width-2}} "), ('class:ansimagenta', '│')]))
     print_formatted_text(FormattedText([('class:ansimagenta', f"├─{'─' * (header_width-2)}─┤")]))
-    print_formatted_text(FormattedText([('class:ansimagenta', '│'), ('class:ansicyan', f" CURRENT SYSTEM TIME: {current_time}{'':<{header_width-26}} "), ('class:ansimagenta', '│')]))
+    print_formatted_text(FormattedText([
+        ('class:ansimagenta', '│'),
+        ('class:ansicyan', f" CURRENT SYSTEM TIME: {current_time}{'':<{time_padding}} "),
+        ('class:ansimagenta', '│')
+    ]))
     print_formatted_text(FormattedText([('class:ansimagenta', f"└─{'─' * (header_width-2)}─┘")])); print()
 
+# (The rest of the file is identical to the last version)
 def display_game_list(local_games: list, cartridge_games: dict, game_map: dict):
     display_header("RETROFLOW GAME LIST")
     print_formatted_text(FormattedText([('class:bg:ansiblue class:ansibrightwhite', '   LOCAL GAMES   ')]))
@@ -100,7 +111,7 @@ def display_help():
         ("exit", "Exit the RetroFlow application.", "Safely shuts down the system."),
         ("help", "Display this help message.", "You are here!"),
     ]
-    print_formatted_text(FormattedText([('class:ansibrightgreen', "Command Reference:")]))
+    print_formatted_text(FormattedText([('class:ansigreen', "Command Reference:")]))
     print_formatted_text(FormattedText([('class:ansibrightyellow', "  Command              Description                                      Usage Example")]))
     for cmd, desc, usage in help_text:
         print_formatted_text(FormattedText([('class:ansibrightcyan', f"  {cmd:<20} "), ('class:ansicyan', f"{desc:<48} "), ('class:ansiblue', f"{usage}")]))
@@ -119,48 +130,55 @@ def display_settings():
     for setting, value in settings:
         print_formatted_text(FormattedText([('class:ansibrightcyan', f"  {setting:<33} "), ('class:ansicyan', value)]))
 
-# --- NEW FUNCTIONS ---
-
 def display_game_info(game_info: dict):
-    """Displays detailed information for a single game."""
     display_header("GAME INFORMATION")
-    
     info = {
-        "Game Name": game_info.get('name', 'N/A'),
-        "System": game_info.get('system', 'N/A'),
+        "Game Name": game_info.get('name', 'N/A'), "System": game_info.get('system', 'N/A'),
         "Full Path": str(game_info.get('path', 'N/A')),
         "Launcher Found": "Yes" if game_info.get('launcher_found') else "No",
         "Emulator Used": str(game_info.get('emulator_exe', 'N/A'))
     }
-    
     print_formatted_text(FormattedText([('class:ansibrightyellow', "  Property                  Value")]))
     print_formatted_text(FormattedText([('class:ansibrightyellow', "  ------------------------- ------------------------------------------------")]))
     for key, value in info.items():
-        print_formatted_text(FormattedText([
-            ('class:ansibrightcyan', f"  {key:<25} "),
-            ('class:ansicyan', value)
-        ]))
+        print_formatted_text(FormattedText([('class:ansibrightcyan', f"  {key:<25} "), ('class:ansicyan', value)]))
 
 def display_drive_list(drives: list[Path]):
-    """Displays a list of detected removable drives and their stats."""
     display_header("DETECTED CARTRIDGE DRIVES")
     if not drives:
         print_formatted_text(FormattedText([('class:ansiyellow', "No removable drives detected.")]))
         return
-
     print_formatted_text(FormattedText([('class:ansibrightyellow', "  Mount Point                  Total Size   Free Space")]))
     print_formatted_text(FormattedText([('class:ansibrightyellow', "  ---------------------------- ------------ ------------")]))
     for drive_path in drives:
         try:
             usage = psutil.disk_usage(str(drive_path))
-            total_gb = usage.total / (1024**3)
-            free_gb = usage.free / (1024**3)
-            print_formatted_text(FormattedText([
-                ('class:ansibrightcyan', f"  {str(drive_path)[:28]:<28} "),
-                ('class:ansimagenta', f"{total_gb:<11.2f} GB "),
-                ('class:ansiblue', f"{free_gb:<10.2f} GB")
-            ]))
+            total_gb = usage.total / (1024**3); free_gb = usage.free / (1024**3)
+            print_formatted_text(FormattedText([('class:ansibrightcyan', f"  {str(drive_path)[:28]:<28} "), ('class:ansimagenta', f"{total_gb:<11.2f} GB "), ('class:ansiblue', f"{free_gb:<10.2f} GB")]))
         except Exception:
-            print_formatted_text(FormattedText([
-                ('class:ansired', f"  {str(drive_path)[:28]:<28} ERROR: Could not read disk usage.")
-            ]))
+            print_formatted_text(FormattedText([('class:ansired', f"  {str(drive_path)[:28]:<28} ERROR: Could not read disk usage.")]))
+
+def display_log(num_lines: int):
+    display_header("APPLICATION LOG")
+    if not LOG_FILE.exists():
+        print_formatted_text(FormattedText([('class:ansiyellow', "Log file not found. No entries to display.")]))
+        return
+    try:
+        with open(LOG_FILE, 'r', encoding='utf-8') as f: lines = f.readlines()
+    except Exception as e:
+        print_formatted_text(FormattedText([('class:ansired', f"Error reading log file: {e}")]))
+        return
+    if not lines:
+        print_formatted_text(FormattedText([('class:ansiyellow', "Log file is empty.")]))
+        return
+    print_formatted_text(FormattedText([('class:ansibrightyellow', "  Timestamp               Level      Message")]))
+    print_formatted_text(FormattedText([('class:ansibrightyellow', "  ----------------------- ---------- -------------------------------------------")]))
+    level_colors = {'INFO': 'class:ansigreen', 'DEBUG': 'class:ansiblue', 'WARNING': 'class:ansiyellow', 'ERROR': 'class:ansired', 'FATAL': 'class:bg:ansired class:ansibrightwhite'}
+    log_pattern = re.compile(r'^\[(.*?)\] \[(.*?)\] (.*)$')
+    for line in lines[-num_lines:]:
+        line = line.strip(); match = log_pattern.match(line)
+        if match:
+            timestamp, level, message = match.groups(); color = level_colors.get(level, 'class:ansicyan')
+            print_formatted_text(FormattedText([('class:ansicyan', f"  {timestamp} "), (color, f"{level:<10} "), ('class:ansibrightwhite', html.escape(message))]))
+        else:
+            print_formatted_text(FormattedText([('class:ansigray', f"  {html.escape(line)}")]))

@@ -1,0 +1,282 @@
+[2025-07-13 16:11:33] [INFO] --- RETRERALE Application Start ---
+[2025-07-13 16:11:33] [INFO] Audio system initialized successfully.
+[2025-07-13 16:11:33] [ERROR] Could not read config file at /home/anshul/Dev/challenges/hackathons/osdhack/osdhack25/config.json: Expecting value: line 1 column 1 (char 0)
+[2025-07-13 16:11:33] [INFO] Background game scanner thread started.
+[2025-07-13 16:11:33] [DEBUG] Starting game list update scan.
+[2025-07-13 16:11:33] [INFO] Scan complete. Mapped 0 total games.
+[2025-07-13 16:11:33] [WARNING] Sound file for key 'startup' not found at: /home/anshul/Dev/challenges/hackathons/osdhack/osdhack25/Sounds/startup.mp3
+[2025-07-13 16:11:35] [DEBUG] Starting game list update scan.
+[2025-07-13 16:11:35] [INFO] Scan complete. Mapped 0 total games.
+[2025-07-13 16:11:40] [WARNING] Sound file for key 'menu_select' not found at: /home/anshul/Dev/challenges/hackathons/osdhack/osdhack25/Sounds/select.mp3
+[2025-07-13 16:11:48] [WARNING] Sound file for key 'menu_select' not found at: /home/anshul/Dev/challenges/hackathons/osdhack/osdhack25/Sounds/select.mp3
+[2025-07-13 16:12:00] [INFO] --- RETRERALE Application Shutdown ---
+[2025-07-13 16:12:00] [INFO] Background game scanner thread stopped.
+[2025-07-13 16:12:00] [INFO] Audio system shut down.
+[2025-07-13 16:13:52] [INFO] --- RETRERALE Application Start ---
+[2025-07-13 16:13:52] [INFO] Audio system initialized successfully.
+[2025-07-13 16:13:52] [ERROR] Could not read config file at /home/anshul/Dev/challenges/hackathons/osdhack/osdhack25/config.json: Expecting value: line 1 column 1 (char 0)
+[2025-07-13 16:13:52] [INFO] Background game scanner thread started.
+[2025-07-13 16:13:52] [DEBUG] Starting game list update scan.
+[2025-07-13 16:13:52] [INFO] Scan complete. Mapped 5 total games.
+[2025-07-13 16:13:52] [WARNING] Sound file for key 'startup' not found at: /home/anshul/Dev/challenges/hackathons/osdhack/osdhack25/Sounds/startup.mp3
+[2025-07-13 16:13:58] [DEBUG] Starting game list update scan.
+[2025-07-13 16:13:58] [INFO] Scan complete. Mapped 5 total games.
+[2025-07-13 16:14:01] [WARNING] Sound file for key 'menu_select' not found at: /home/anshul/Dev/challenges/hackathons/osdhack/osdhack25/Sounds/select.mp3
+[2025-07-13 16:14:03] [WARNING] Sound file for key 'menu_select' not found at: /home/anshul/Dev/challenges/hackathons/osdhack/osdhack25/Sounds/select.mp3
+[2025-07-13 16:14:14] [WARNING] Sound file for key 'menu_select' not found at: /home/anshul/Dev/challenges/hackathons/osdhack/osdhack25/Sounds/select.mp3
+[2025-07-13 16:14:22] [DEBUG] Starting game list update scan.
+[2025-07-13 16:14:22] [INFO] Scan complete. Mapped 5 total games.
+[2025-07-13 16:14:23] [WARNING] Sound file for key 'chat_enter' not found at: /home/anshul/Dev/challenges/hackathons/osdhack/osdhack25/Sounds/chat.mp3
+[2025-07-13 16:14:46] [WARNING] Sound file for key 'error' not found at: /home/anshul/Dev/challenges/hackathons/osdhack/osdhack25/Sounds/error.mp3
+[2025-07-13 16:14:51] [INFO] --- RETRERALE Application Shutdown ---
+[2025-07-13 16:14:51] [INFO] Background game scanner thread stopped.
+[2025-07-13 16:14:51] [INFO] Audio system shut down.
+[2025-07-13 16:33:43] [INFO] --- RETRERALE Application Start ---
+[2025-07-13 16:33:44] [INFO] Audio system initialized successfully.
+[2025-07-13 16:33:44] [ERROR] Could not read config file at /home/anshul/Dev/challenges/hackathons/osdhack/osdhack25/config.json: Expecting value: line 1 column 1 (char 0)
+[2025-07-13 16:33:44] [INFO] Background game scanner thread started.
+[2025-07-13 16:33:44] [DEBUG] Starting game list update scan.
+[2025-07-13 16:33:44] [WARNING] Sound file for key 'startup' not found at: /home/anshul/Dev/challenges/hackathons/osdhack/osdhack25/Sounds/startup.mp3
+[2025-07-13 16:33:44] [INFO] Scan complete. Mapped 5 total games.
+[2025-07-13 16:33:48] [DEBUG] Starting game list update scan.
+[2025-07-13 16:33:48] [INFO] Scan complete. Mapped 5 total games.
+[2025-07-13 16:33:49] [WARNING] Sound file for key 'error' not found at: /home/anshul/Dev/challenges/hackathons/osdhack/osdhack25/Sounds/error.mp3
+[2025-07-13 16:33:51] [WARNING] Sound file for key 'menu_select' not found at: /home/anshul/Dev/challenges/hackathons/osdhack/osdhack25/Sounds/select.mp3
+[2025-07-13 16:34:14] [DEBUG] Starting game list update scan.
+[2025-07-13 16:34:14] [INFO] Scan complete. Mapped 5 total games.
+[2025-07-13 16:34:19] [WARNING] Sound file for key 'menu_select' not found at: /home/anshul/Dev/challenges/hackathons/osdhack/osdhack25/Sounds/select.mp3
+[2025-07-13 16:34:30] [INFO] --- RETRERALE Application Shutdown ---
+[2025-07-13 16:34:30] [INFO] Background game scanner thread stopped.
+[2025-07-13 16:34:30] [INFO] Audio system shut down.
+[2025-07-13 17:00:04] [INFO] --- RETRERALE Application Start ---
+[2025-07-13 17:00:06] [INFO] Audio system initialized successfully.
+[2025-07-13 17:00:06] [ERROR] Could not read config file at /home/anshul/Dev/challenges/hackathons/osdhack/osdhack25/config.json: Expecting value: line 1 column 1 (char 0)
+[2025-07-13 17:00:06] [INFO] Background game scanner thread started.
+[2025-07-13 17:00:06] [DEBUG] Starting game list update scan.
+[2025-07-13 17:00:06] [INFO] Scan complete. Mapped 5 total games.
+[2025-07-13 17:00:07] [DEBUG] Played sound: 'startup'
+[2025-07-13 17:00:16] [DEBUG] Starting game list update scan.
+[2025-07-13 17:00:16] [INFO] Scan complete. Mapped 5 total games.
+[2025-07-13 17:00:19] [DEBUG] Played sound: 'menu_select'
+[2025-07-13 17:00:25] [DEBUG] Played sound: 'menu_select'
+[2025-07-13 17:00:29] [DEBUG] Played sound: 'error'
+[2025-07-13 17:00:36] [DEBUG] Starting game list update scan.
+[2025-07-13 17:00:36] [INFO] Scan complete. Mapped 5 total games.
+[2025-07-13 17:00:38] [DEBUG] Played sound: 'chat_enter'
+[2025-07-13 17:00:45] [DEBUG] Played sound: 'error'
+[2025-07-13 17:00:52] [DEBUG] Played sound: 'error'
+[2025-07-13 17:00:57] [DEBUG] Played sound: 'menu_select'
+[2025-07-13 17:01:06] [DEBUG] Starting game list update scan.
+[2025-07-13 17:01:06] [INFO] Scan complete. Mapped 5 total games.
+[2025-07-13 17:01:07] [DEBUG] Played sound: 'menu_select'
+[2025-07-13 17:01:09] [DEBUG] Played sound: 'menu_select'
+[2025-07-13 17:01:19] [DEBUG] Played sound: 'menu_select'
+[2025-07-13 17:01:36] [DEBUG] Starting game list update scan.
+[2025-07-13 17:01:36] [INFO] Scan complete. Mapped 5 total games.
+[2025-07-13 17:02:06] [DEBUG] Starting game list update scan.
+[2025-07-13 17:02:06] [INFO] Scan complete. Mapped 5 total games.
+[2025-07-13 17:02:36] [DEBUG] Starting game list update scan.
+[2025-07-13 17:02:36] [INFO] Scan complete. Mapped 5 total games.
+[2025-07-13 17:03:06] [DEBUG] Starting game list update scan.
+[2025-07-13 17:03:06] [INFO] Scan complete. Mapped 5 total games.
+[2025-07-13 17:03:36] [DEBUG] Starting game list update scan.
+[2025-07-13 17:03:36] [INFO] Scan complete. Mapped 5 total games.
+[2025-07-13 17:04:06] [DEBUG] Starting game list update scan.
+[2025-07-13 17:04:06] [INFO] Scan complete. Mapped 5 total games.
+[2025-07-13 17:04:36] [DEBUG] Starting game list update scan.
+[2025-07-13 17:04:36] [INFO] Scan complete. Mapped 5 total games.
+[2025-07-13 17:05:06] [DEBUG] Starting game list update scan.
+[2025-07-13 17:05:06] [INFO] Scan complete. Mapped 5 total games.
+[2025-07-13 17:05:36] [DEBUG] Starting game list update scan.
+[2025-07-13 17:05:36] [INFO] Scan complete. Mapped 5 total games.
+[2025-07-13 17:06:06] [DEBUG] Starting game list update scan.
+[2025-07-13 17:06:06] [INFO] Scan complete. Mapped 5 total games.
+[2025-07-13 17:06:36] [DEBUG] Starting game list update scan.
+[2025-07-13 17:06:36] [INFO] Scan complete. Mapped 5 total games.
+[2025-07-13 17:07:06] [DEBUG] Starting game list update scan.
+[2025-07-13 17:07:06] [INFO] Scan complete. Mapped 5 total games.
+[2025-07-13 17:07:36] [DEBUG] Starting game list update scan.
+[2025-07-13 17:07:36] [INFO] Scan complete. Mapped 5 total games.
+[2025-07-13 17:08:06] [DEBUG] Starting game list update scan.
+[2025-07-13 17:08:06] [INFO] Scan complete. Mapped 5 total games.
+[2025-07-13 17:08:36] [DEBUG] Starting game list update scan.
+[2025-07-13 17:08:36] [INFO] Scan complete. Mapped 5 total games.
+[2025-07-13 17:09:06] [DEBUG] Starting game list update scan.
+[2025-07-13 17:09:06] [INFO] Scan complete. Mapped 5 total games.
+[2025-07-13 17:09:36] [DEBUG] Starting game list update scan.
+[2025-07-13 17:09:36] [INFO] Scan complete. Mapped 5 total games.
+[2025-07-13 17:10:06] [DEBUG] Starting game list update scan.
+[2025-07-13 17:10:06] [INFO] Scan complete. Mapped 5 total games.
+[2025-07-13 17:10:36] [DEBUG] Starting game list update scan.
+[2025-07-13 17:10:36] [INFO] Scan complete. Mapped 5 total games.
+[2025-07-13 17:11:06] [DEBUG] Starting game list update scan.
+[2025-07-13 17:11:06] [INFO] Scan complete. Mapped 5 total games.
+[2025-07-13 17:11:36] [DEBUG] Starting game list update scan.
+[2025-07-13 17:11:36] [INFO] Scan complete. Mapped 5 total games.
+[2025-07-13 17:12:06] [DEBUG] Starting game list update scan.
+[2025-07-13 17:12:06] [INFO] Scan complete. Mapped 5 total games.
+[2025-07-13 17:12:36] [DEBUG] Starting game list update scan.
+[2025-07-13 17:12:36] [INFO] Scan complete. Mapped 5 total games.
+[2025-07-13 17:13:06] [DEBUG] Starting game list update scan.
+[2025-07-13 17:13:06] [INFO] Scan complete. Mapped 5 total games.
+[2025-07-13 17:13:36] [DEBUG] Starting game list update scan.
+[2025-07-13 17:13:36] [INFO] Scan complete. Mapped 5 total games.
+[2025-07-13 17:14:06] [DEBUG] Starting game list update scan.
+[2025-07-13 17:14:06] [INFO] Scan complete. Mapped 5 total games.
+[2025-07-13 17:14:36] [DEBUG] Starting game list update scan.
+[2025-07-13 17:14:36] [INFO] Scan complete. Mapped 5 total games.
+[2025-07-13 17:15:06] [DEBUG] Starting game list update scan.
+[2025-07-13 17:15:06] [INFO] Scan complete. Mapped 5 total games.
+[2025-07-13 17:15:36] [DEBUG] Starting game list update scan.
+[2025-07-13 17:15:36] [INFO] Scan complete. Mapped 5 total games.
+[2025-07-13 17:16:06] [DEBUG] Starting game list update scan.
+[2025-07-13 17:16:06] [INFO] Scan complete. Mapped 5 total games.
+[2025-07-13 17:16:36] [DEBUG] Starting game list update scan.
+[2025-07-13 17:16:36] [INFO] Scan complete. Mapped 5 total games.
+[2025-07-13 17:17:06] [DEBUG] Starting game list update scan.
+[2025-07-13 17:17:06] [INFO] Scan complete. Mapped 5 total games.
+[2025-07-13 17:17:36] [DEBUG] Starting game list update scan.
+[2025-07-13 17:17:36] [INFO] Scan complete. Mapped 5 total games.
+[2025-07-13 17:18:06] [DEBUG] Starting game list update scan.
+[2025-07-13 17:18:06] [INFO] Scan complete. Mapped 5 total games.
+[2025-07-13 17:18:36] [DEBUG] Starting game list update scan.
+[2025-07-13 17:18:36] [INFO] Scan complete. Mapped 5 total games.
+[2025-07-13 17:19:06] [DEBUG] Starting game list update scan.
+[2025-07-13 17:19:06] [INFO] Scan complete. Mapped 5 total games.
+[2025-07-13 17:19:36] [DEBUG] Starting game list update scan.
+[2025-07-13 17:19:36] [INFO] Scan complete. Mapped 5 total games.
+[2025-07-13 17:20:06] [DEBUG] Starting game list update scan.
+[2025-07-13 17:20:06] [INFO] Scan complete. Mapped 5 total games.
+[2025-07-13 17:20:36] [DEBUG] Starting game list update scan.
+[2025-07-13 17:20:36] [INFO] Scan complete. Mapped 5 total games.
+[2025-07-13 17:21:06] [DEBUG] Starting game list update scan.
+[2025-07-13 17:21:06] [INFO] Scan complete. Mapped 5 total games.
+[2025-07-13 17:21:36] [DEBUG] Starting game list update scan.
+[2025-07-13 17:21:36] [INFO] Scan complete. Mapped 5 total games.
+[2025-07-13 17:22:06] [DEBUG] Starting game list update scan.
+[2025-07-13 17:22:06] [INFO] Scan complete. Mapped 5 total games.
+[2025-07-13 17:22:36] [DEBUG] Starting game list update scan.
+[2025-07-13 17:22:36] [INFO] Scan complete. Mapped 5 total games.
+[2025-07-13 17:23:06] [DEBUG] Starting game list update scan.
+[2025-07-13 17:23:06] [INFO] Scan complete. Mapped 5 total games.
+[2025-07-13 17:23:36] [DEBUG] Starting game list update scan.
+[2025-07-13 17:23:36] [INFO] Scan complete. Mapped 5 total games.
+[2025-07-13 17:24:06] [DEBUG] Starting game list update scan.
+[2025-07-13 17:24:06] [INFO] Scan complete. Mapped 5 total games.
+[2025-07-13 17:24:36] [DEBUG] Starting game list update scan.
+[2025-07-13 17:24:36] [INFO] Scan complete. Mapped 5 total games.
+[2025-07-13 17:25:06] [DEBUG] Starting game list update scan.
+[2025-07-13 17:25:07] [INFO] Scan complete. Mapped 5 total games.
+[2025-07-13 17:25:37] [DEBUG] Starting game list update scan.
+[2025-07-13 17:25:37] [INFO] Scan complete. Mapped 5 total games.
+[2025-07-13 17:26:07] [DEBUG] Starting game list update scan.
+[2025-07-13 17:26:07] [INFO] Scan complete. Mapped 5 total games.
+[2025-07-13 17:26:37] [DEBUG] Starting game list update scan.
+[2025-07-13 17:26:37] [INFO] Scan complete. Mapped 5 total games.
+[2025-07-13 17:27:07] [DEBUG] Starting game list update scan.
+[2025-07-13 17:27:07] [INFO] Scan complete. Mapped 5 total games.
+[2025-07-13 17:27:37] [DEBUG] Starting game list update scan.
+[2025-07-13 17:27:37] [INFO] Scan complete. Mapped 5 total games.
+[2025-07-13 17:28:07] [DEBUG] Starting game list update scan.
+[2025-07-13 17:28:07] [INFO] Scan complete. Mapped 5 total games.
+[2025-07-13 17:28:37] [DEBUG] Starting game list update scan.
+[2025-07-13 17:28:37] [INFO] Scan complete. Mapped 5 total games.
+[2025-07-13 17:28:40] [INFO] --- RETRERALE Application Shutdown ---
+[2025-07-13 17:28:40] [INFO] Background game scanner thread stopped.
+[2025-07-13 17:28:40] [INFO] Audio system shut down.
+[2025-07-13 17:32:35] [INFO] --- RETRERALE Application Start ---
+[2025-07-13 17:32:36] [INFO] Audio system initialized successfully.
+[2025-07-13 17:32:36] [ERROR] Could not read config file at /home/anshul/Dev/challenges/hackathons/osdhack/osdhack25/config.json: Expecting value: line 1 column 1 (char 0)
+[2025-07-13 17:32:36] [INFO] Background game scanner thread started.
+[2025-07-13 17:32:36] [DEBUG] Starting game list update scan.
+[2025-07-13 17:32:36] [DEBUG] Played sound: 'startup'
+[2025-07-13 17:32:38] [DEBUG] Starting game list update scan.
+[2025-07-13 17:53:02] [INFO] --- RETRERALE Application Start ---
+[2025-07-13 17:53:09] [INFO] Audio system initialized successfully.
+[2025-07-13 17:53:09] [INFO] AI features disabled: No API key provided.
+[2025-07-13 17:53:09] [INFO] Background game scanner thread started.
+[2025-07-13 17:53:09] [DEBUG] Starting game list update scan.
+[2025-07-13 17:53:09] [INFO] Scan complete. Mapped 5 total games.
+[2025-07-13 17:53:09] [DEBUG] Played sound: 'startup'
+[2025-07-13 17:53:39] [DEBUG] Starting game list update scan.
+[2025-07-13 17:53:39] [INFO] Scan complete. Mapped 5 total games.
+[2025-07-13 17:54:09] [DEBUG] Starting game list update scan.
+[2025-07-13 17:54:09] [INFO] Scan complete. Mapped 5 total games.
+[2025-07-13 17:54:39] [DEBUG] Starting game list update scan.
+[2025-07-13 17:54:39] [INFO] Scan complete. Mapped 5 total games.
+[2025-07-13 17:54:42] [DEBUG] Starting game list update scan.
+[2025-07-13 17:54:42] [INFO] Scan complete. Mapped 5 total games.
+[2025-07-13 17:54:44] [DEBUG] Played sound: 'menu_select'
+[2025-07-13 17:54:46] [INFO] --- RETRERALE Application Shutdown ---
+[2025-07-13 17:54:46] [INFO] Background game scanner thread stopped.
+[2025-07-13 17:54:46] [INFO] Audio system shut down.
+[2025-07-13 18:01:53] [INFO] --- RETRERALE Application Start ---
+[2025-07-13 18:01:54] [INFO] Audio system initialized successfully.
+[2025-07-13 18:01:54] [INFO] AI features disabled: No API key provided.
+[2025-07-13 18:01:54] [INFO] Background game scanner thread started.
+[2025-07-13 18:01:54] [DEBUG] Starting game list update scan.
+[2025-07-13 18:01:54] [WARNING] Emulator command 'fceux' could not be found locally or in system PATH.
+[2025-07-13 18:01:54] [DEBUG] Found system-installed emulator for 'mgba' at: /usr/bin/mgba
+[2025-07-13 18:01:54] [DEBUG] Found system-installed emulator for 'mgba' at: /usr/bin/mgba
+[2025-07-13 18:01:54] [DEBUG] Found system-installed emulator for 'mgba' at: /usr/bin/mgba
+[2025-07-13 18:01:54] [WARNING] Emulator command 'snes9x' could not be found locally or in system PATH.
+[2025-07-13 18:01:54] [INFO] Scan complete. Mapped 5 total games.
+[2025-07-13 18:01:54] [DEBUG] Played sound: 'startup'
+[2025-07-13 18:02:06] [DEBUG] Starting game list update scan.
+[2025-07-13 18:02:06] [WARNING] Emulator command 'fceux' could not be found locally or in system PATH.
+[2025-07-13 18:02:06] [DEBUG] Found system-installed emulator for 'mgba' at: /usr/bin/mgba
+[2025-07-13 18:02:06] [DEBUG] Found system-installed emulator for 'mgba' at: /usr/bin/mgba
+[2025-07-13 18:02:06] [DEBUG] Found system-installed emulator for 'mgba' at: /usr/bin/mgba
+[2025-07-13 18:02:06] [WARNING] Emulator command 'snes9x' could not be found locally or in system PATH.
+[2025-07-13 18:02:06] [INFO] Scan complete. Mapped 5 total games.
+[2025-07-13 18:02:09] [DEBUG] Played sound: 'menu_select'
+[2025-07-13 18:02:15] [DEBUG] Played sound: 'menu_select'
+[2025-07-13 18:02:20] [DEBUG] Played sound: 'error'
+[2025-07-13 18:02:22] [INFO] Attempting to launch with command: /usr/bin/mgba /home/anshul/Dev/challenges/hackathons/osdhack/osdhack25/Games/Pokemon - Crystal Version (USA).gbc
+[2025-07-13 18:02:22] [INFO] Successfully sent launch command for Pokemon - Crystal Version (USA).
+[2025-07-13 18:02:22] [WARNING] Sound file for key 'launch_game' not found at: /home/anshul/Dev/challenges/hackathons/osdhack/osdhack25/Sounds/launch.mp3
+[2025-07-13 18:02:24] [DEBUG] Starting game list update scan.
+[2025-07-13 18:02:24] [WARNING] Emulator command 'fceux' could not be found locally or in system PATH.
+[2025-07-13 18:02:24] [DEBUG] Found system-installed emulator for 'mgba' at: /usr/bin/mgba
+[2025-07-13 18:02:24] [DEBUG] Found system-installed emulator for 'mgba' at: /usr/bin/mgba
+[2025-07-13 18:02:24] [DEBUG] Found system-installed emulator for 'mgba' at: /usr/bin/mgba
+[2025-07-13 18:02:24] [WARNING] Emulator command 'snes9x' could not be found locally or in system PATH.
+[2025-07-13 18:02:24] [INFO] Scan complete. Mapped 5 total games.
+[2025-07-13 18:02:37] [INFO] Attempting to launch with command: /usr/bin/mgba /home/anshul/Dev/challenges/hackathons/osdhack/osdhack25/Games/Pokemon - Crystal Version (USA).gbc
+[2025-07-13 18:02:37] [INFO] Successfully sent launch command for Pokemon - Crystal Version (USA).
+[2025-07-13 18:02:37] [WARNING] Sound file for key 'launch_game' not found at: /home/anshul/Dev/challenges/hackathons/osdhack/osdhack25/Sounds/launch.mp3
+[2025-07-13 18:02:47] [DEBUG] Played sound: 'menu_select'
+[2025-07-13 18:02:53] [INFO] Attempting to launch with command: /usr/bin/mgba /home/anshul/Dev/challenges/hackathons/osdhack/osdhack25/Games/Pokemon - Sapphire Version (USA, Europe).gba
+[2025-07-13 18:02:53] [INFO] Successfully sent launch command for Pokemon - Sapphire Version (USA, Europe).
+[2025-07-13 18:02:53] [WARNING] Sound file for key 'launch_game' not found at: /home/anshul/Dev/challenges/hackathons/osdhack/osdhack25/Sounds/launch.mp3
+[2025-07-13 18:02:54] [DEBUG] Starting game list update scan.
+[2025-07-13 18:02:54] [WARNING] Emulator command 'fceux' could not be found locally or in system PATH.
+[2025-07-13 18:02:54] [DEBUG] Found system-installed emulator for 'mgba' at: /usr/bin/mgba
+[2025-07-13 18:02:54] [DEBUG] Found system-installed emulator for 'mgba' at: /usr/bin/mgba
+[2025-07-13 18:02:54] [DEBUG] Found system-installed emulator for 'mgba' at: /usr/bin/mgba
+[2025-07-13 18:02:54] [WARNING] Emulator command 'snes9x' could not be found locally or in system PATH.
+[2025-07-13 18:02:54] [INFO] Scan complete. Mapped 5 total games.
+[2025-07-13 18:03:24] [DEBUG] Starting game list update scan.
+[2025-07-13 18:03:24] [WARNING] Emulator command 'fceux' could not be found locally or in system PATH.
+[2025-07-13 18:03:24] [DEBUG] Found system-installed emulator for 'mgba' at: /usr/bin/mgba
+[2025-07-13 18:03:24] [DEBUG] Found system-installed emulator for 'mgba' at: /usr/bin/mgba
+[2025-07-13 18:03:24] [DEBUG] Found system-installed emulator for 'mgba' at: /usr/bin/mgba
+[2025-07-13 18:03:24] [WARNING] Emulator command 'snes9x' could not be found locally or in system PATH.
+[2025-07-13 18:03:24] [INFO] Scan complete. Mapped 5 total games.
+[2025-07-13 18:03:54] [DEBUG] Starting game list update scan.
+[2025-07-13 18:03:54] [WARNING] Emulator command 'fceux' could not be found locally or in system PATH.
+[2025-07-13 18:03:54] [DEBUG] Found system-installed emulator for 'mgba' at: /usr/bin/mgba
+[2025-07-13 18:03:54] [DEBUG] Found system-installed emulator for 'mgba' at: /usr/bin/mgba
+[2025-07-13 18:03:54] [DEBUG] Found system-installed emulator for 'mgba' at: /usr/bin/mgba
+[2025-07-13 18:03:54] [WARNING] Emulator command 'snes9x' could not be found locally or in system PATH.
+[2025-07-13 18:03:54] [INFO] Scan complete. Mapped 5 total games.
+[2025-07-13 18:04:24] [DEBUG] Starting game list update scan.
+[2025-07-13 18:04:24] [WARNING] Emulator command 'fceux' could not be found locally or in system PATH.
+[2025-07-13 18:04:24] [DEBUG] Found system-installed emulator for 'mgba' at: /usr/bin/mgba
+[2025-07-13 18:04:24] [DEBUG] Found system-installed emulator for 'mgba' at: /usr/bin/mgba
+[2025-07-13 18:04:24] [DEBUG] Found system-installed emulator for 'mgba' at: /usr/bin/mgba
+[2025-07-13 18:04:24] [WARNING] Emulator command 'snes9x' could not be found locally or in system PATH.
+[2025-07-13 18:04:24] [INFO] Scan complete. Mapped 5 total games.
+[2025-07-13 18:04:42] [INFO] --- RETRERALE Application Shutdown ---
+[2025-07-13 18:04:42] [INFO] Background game scanner thread stopped.
+[2025-07-13 18:04:42] [INFO] Audio system shut down.

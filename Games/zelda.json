@@ -1,0 +1,7 @@
+{
+  "game_name": "The Legend of Zelda (GB)",
+  "emulator": "retroarch",
+  "core": "gambatte_libretro.dll",
+  "launch_command": "retroarch.exe -L cores/{core} \"{game_path}\"",
+  "resolution": "160x144"
+}

@@ -1,0 +1,7 @@
+{
+  "game_name": "Pac-Man (NES)",
+  "emulator": "retroarch",
+  "core": "fceumm_libretro.dll",
+  "launch_command": "retroarch.exe -L cores/{core} \"{game_path}\"",
+  "resolution": "256x240"
+}

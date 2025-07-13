@@ -1,0 +1,7 @@
+{
+  "game_name": "Super Mario World (SNES)",
+  "emulator": "retroarch",
+  "core": "snes9x_libretro.dll",
+  "launch_command": "retroarch.exe -L cores/{core} \"{game_path}\"",
+  "resolution": "512x480"
+}

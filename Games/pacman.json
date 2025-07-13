@@ -1,0 +1,7 @@
+{
+  "game_name": "PacMan (ROM)",
+  "emulator": "retroarch",
+  "core": "fceumm_libretro.dll",
+  "launch_command": "retroarch.exe -L cores/{core} \"{game_path}\"",
+  "resolution": "240x160"
+}
