@@ -50,29 +50,33 @@ Welcome to **RETRERALE**, a dynamic, AI-powered retro game launcher with a class
 ## Folder Structure
 
 To use RETRERALE, you need to place your files in the correct folders:
-```
-/RETRERALE/
-│
-├── RETRERALE.exe # (The final built application)
-│
-├── Games/ # <-- Place your game ROMs here (e.g., mario.nes)
-│ ├── NES/
-│ └── SNES/
-│
-├── Emulators/ # <-- Place portable emulators in subfolders here
-│ ├── fceux/
-│ │ └── fceux.exe
-│ └── snes9x/
-│ └── snes9x.exe
-│
-└── Sounds/ # <-- Place your sound effect files here
-├── startup.mp3
-└── launch.mp3
-```
 
--   **`Games/`**: Put all your game ROMs here. You can organize them into subfolders (e.g., `Games/NES`, `Games/GBA`); the scanner will find them all.
--   **`Emulators/`**: This is for **portable** emulators. Create a subfolder named after the emulator's command (e.g., `fceux`), and place its executable inside.
--   **`Sounds/`**: Place the required `.mp3` sound files here.
+/RetroFlow-Launcher/
+│
+├── venv/                     # Your Python virtual environment
+│
+├── retro_launcher.py         # The main script to run and build
+├── requirements.txt          # The list of libraries to install
+│
+├── src/                      # The source code package
+│   ├── __init__.py
+│   ├── ai_chat.py
+│   ├── audio.py
+│   ├── config.py             # <-- Contains the updated EMULATOR_PROFILES
+│   ├── game_manager.py       # <-- Contains the new find_emulator_path logic
+│   ├── launcher.py
+│   ├── ui.py
+│   └── utils.py
+│
+├── Games/                    # (External) Place your game ROMs here
+├── Emulators/                # (External) Place portable emulators here in subfolders
+└── Sounds/                   # (External) Place your sound files here```
+
+
+
+### Final Distribution Structure (What you give to users)
+
+After you run the PyInstaller command, you will assemble the final release folder like this. The `.exe` will correctly look for the `Games`, `Emulators`, `Sounds`, `config.json`, and `retroflow.log` files alongside itself in this folder.
 
 ## How to Use
 
