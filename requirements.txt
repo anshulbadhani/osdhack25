@@ -1,0 +1,16 @@
+# Third-party libraries for the RetroFlow Terminal Launcher
+
+# For the command-line interface, styling, and prompts
+prompt_toolkit
+
+# For system information like memory usage and disk partitions (cartridge scanning)
+psutil
+
+# For the AI chatbot functionality
+google-generativeai
+
+# For non-blocking sound playback
+pygame
+
+# For building the final executable
+pyinstaller
